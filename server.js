@@ -2,12 +2,12 @@ const http = require("http");
 const app = require("./app");
 require('dotenv').config();
 
-const port = SERVER_PORT;
+const port = parseInt(process.env.SERVER_PORT);
 
 const server = http.createServer(app);
 
-server.on("error",() => {
-    console.log(error);
+server.on("error",(e) => {
+    console.log(e);
     process.exit(1);
 });
 
